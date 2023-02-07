@@ -46,7 +46,7 @@ Additionally, there are two stacks you can use to store more information. All of
   </tr>
     <tr>
     <td>OM</td>
-    <td>Changes output mode from Numbers to ASCII and backwards, default is Numbers</td>
+    <td>Changes output/input mode from Numbers to ASCII and backwards, default is Numbers</td>
   </tr>
     <tr>
     <td>[R]>[D]</td>
