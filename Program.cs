@@ -105,7 +105,12 @@ while (active)
             if (code[step][2] == 'L') { grid[conversion.SelfX(), conversion.SelfY()] = stack2.Count; }
         }
 
-
+        if (code[step].Substring(2, 2) == "TJ" && test) { step = marks[int.Parse(code[step].Substring(0, 2))]; }
+        else
+        {
+            if (code[step].Substring(2, 2) == "FJ" && (test == false)) { step = marks[int.Parse(code[step].Substring(0, 2))]; }
+            else { if (code[step].Substring(2, 2) == "AJ") { step = marks[int.Parse(code[step].Substring(0, 2))]; } }
+        }
 
 
     }
