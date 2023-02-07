@@ -1,4 +1,4 @@
-﻿using Capsule;
+using Capsule;
 gridmath conversion = new gridmath();
 string path = @$"./{args[0]}";
 string[] code = File.ReadAllLines(path);
@@ -10,6 +10,12 @@ int output = 0;
 bool active = true;
 int step = 0;
 bool test = false;
+bool intype=false;
+string[] inputs;
+string secondpath = path;
+if (args.Length > 1) { intype = true; secondpath = @$"./{args[1]}"; }
+inputs = File.ReadAllLines(secondpath);
+int lastread = 0;
 foreach(string line in code)
 {
 if (line == "M") { marks.Add(step); }
@@ -19,7 +25,7 @@ if (line == "M") { marks.Add(step); }
 step = 0;
 while (active)
 {
-    if (code[step] == "OM") { output = (output - 1) * -1; if (output == 1) { Console.Write("\n"); } }
+    if (code[step] == "OM") { output = (output - 1) * -1; if (output == 0) { Console.Write("\n"); } }
     if (code[step].Length == 3)
     {
 
@@ -34,9 +40,26 @@ while (active)
         }
         if (code[step][0] == 'I')
         {
-            Console.Write("Input:");
-            grid[conversion.SelfX(), conversion.SelfY()]=int.Parse(Console.ReadLine());
+            if (intype == false)
+            {
+                Console.Write("Input:");
+                if (output == 0)
+                {
+                    grid[conversion.SelfX(), conversion.SelfY()] = int.Parse(Console.ReadLine());
+                }
+                else { grid[conversion.SelfX(), conversion.SelfY()] = ((byte)Console.ReadLine()[0]); }
+            }
+            else
+            {
+                if (output == 0)
+                {
+                    grid[conversion.SelfX(), conversion.SelfY()] = int.Parse(inputs[lastread]); lastread++;
+                }
+                else { grid[conversion.SelfX(), conversion.SelfY()] = ((byte)inputs[lastread][0]); lastread++; }
+
+            }
         }
+
         if (code[step][0] == '+')
         {
 
@@ -50,7 +73,7 @@ while (active)
         if (code[step][0] == 'F')
         {
 
-            grid[conversion.SelfX(), conversion.SelfY()]=0-grid[conversion.SelfX(), conversion.SelfY()];
+            grid[conversion.SelfX(), conversion.SelfY()] = 0 - grid[conversion.SelfX(), conversion.SelfY()];
         }
     }
 
