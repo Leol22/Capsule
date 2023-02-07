@@ -94,16 +94,16 @@ Additionally, there are two stacks you can use to store more information. All of
     <td>Will mark this part of the code for future jumps. This happens only once per mark before the code is executed. The first one is 0, then 1...</td>
   </tr>
           <tr>
-    <td>00TJ</td>
-    <td>Will jump to mark 00 if the last check came back true. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
+    <td>0000TJ</td>
+    <td>Will jump to mark 0000 if the last check came back true. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
   </tr>
             <tr>
-    <td>00FJ</td>
-    <td>Will jump to mark 00 if the last check didn't come back true. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
+    <td>0000FJ</td>
+    <td>Will jump to mark 0000 if the last check didn't come back true. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
   </tr>
             <tr>
-    <td>00AJ</td>
-    <td>Will jump to mark 00. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
+    <td>0000AJ</td>
+    <td>Will jump to mark 0000. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
   </tr>
               <tr>
     <td>ENDP</td>
