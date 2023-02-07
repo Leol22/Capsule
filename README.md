@@ -77,12 +77,9 @@ Additionally, there are two stacks you can use to store more information. All of
     <td>Checks if [R] is greater than one of its neighbours</td>
   </tr>
           <tr>
-    <td>[R]==[D]</td>
-    <td>Checks if [R] is equal to one of its neighbours</td>
-  </tr>
             <tr>
     <td>[R]S[S]</td>
-    <td>Will copy the value in [R] and add it to one of the two stacks, indicated by [S].</td>
+    <td>Will copy the value in [R] and put it on top of one of the two stacks, indicated by [S].</td>
   </tr>
               <tr>
     <td>[R]G[S]</td>
