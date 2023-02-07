@@ -95,15 +95,15 @@ Additionally, there are two stacks you can use to store more information. All of
   </tr>
           <tr>
     <td>0000TJ</td>
-    <td>Will jump to mark 0000 if the last check came back true. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
+    <td>Will jump to mark 0000 if the last check came back true. Replace 0000 with whatever mark you need, but it must be 4 digits.</td>
   </tr>
             <tr>
     <td>0000FJ</td>
-    <td>Will jump to mark 0000 if the last check didn't come back true. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
+    <td>Will jump to mark 0000 if the last check didn't come back true. Replace 0000 with whatever mark you need, but it must be 4 digits.</td>
   </tr>
             <tr>
     <td>0000AJ</td>
-    <td>Will jump to mark 0000. Replace 00 with whatever mark you need, but it must be 2 digits.</td>
+    <td>Will jump to mark 0000. Replace 0000 with whatever mark you need, but it must be 4 digits.</td>
   </tr>
               <tr>
     <td>ENDP</td>
