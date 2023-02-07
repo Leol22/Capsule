@@ -13,6 +13,7 @@ bool test = false;
 bool intype=false;
 string[] inputs;
 string secondpath = path;
+int charcounter = 0;
 if (args.Length > 1) { intype = true; secondpath = @$"./{args[1]}"; }
 inputs = File.ReadAllLines(secondpath);
 int lastread = 0;
@@ -53,9 +54,10 @@ while (active)
             {
                 if (output == 0)
                 {
+                    if (charcounter > 0) { charcounter = 0;lastread++; };
                     grid[conversion.SelfX(), conversion.SelfY()] = int.Parse(inputs[lastread]); lastread++;
                 }
-                else { grid[conversion.SelfX(), conversion.SelfY()] = ((byte)inputs[lastread][0]); lastread++; }
+                else { grid[conversion.SelfX(), conversion.SelfY()] = ((byte)inputs[lastread][charcounter]); charcounter++; if (charcounter == inputs[lastread].Length) { charcounter = 0;lastread++ ; } }
 
             }
         }
@@ -102,12 +104,7 @@ while (active)
             if (code[step][2] == 'G') { grid[conversion.SelfX(), conversion.SelfY()] = stack2[stack2.Count-1]; stack2.RemoveAt(stack2.Count - 1); }
             if (code[step][2] == 'L') { grid[conversion.SelfX(), conversion.SelfY()] = stack2.Count; }
         }
-        if (code[step].Substring(2, 2) == "TJ" && test) { step = marks[int.Parse(code[step].Substring(0, 2))]; }
-        else
-        {
-            if (code[step].Substring(2, 2) == "FJ" && (test == false)) { step = marks[int.Parse(code[step].Substring(0, 2))]; }
-            else { if (code[step].Substring(2, 2) == "AJ") { step = marks[int.Parse(code[step].Substring(0, 2))]; } }
-        }
+
 
 
 
@@ -155,8 +152,17 @@ while (active)
             else { test = false; }
 
         }
-    }
 
+    }
+    if (code[step].Length == 6)
+    {
+        if (code[step].Substring(4, 2) == "TJ" && test) { step = marks[int.Parse(code[step].Substring(0, 4))]; }
+        else
+        {
+            if (code[step].Substring(4, 2) == "FJ" && (test == false)) { step = marks[int.Parse(code[step].Substring(0, 4))]; }
+            else { if (code[step].Substring(4, 2) == "AJ") { step = marks[int.Parse(code[step].Substring(0, 4))]; } }
+        }
+    }
     //step
     step++;
     if (step == code.Count()) { step = 0; }
